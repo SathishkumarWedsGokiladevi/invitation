@@ -157,6 +157,25 @@ background:#0005;backdrop-filter:blur(6px);color:#fff;font-size:22px;line-height
 .vid-in video{display:block;width:100%;height:auto;max-height:80vh;background:#000;object-fit:cover}
 .vid-mute{position:absolute;right:12px;bottom:12px;z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid #fff9;background:#0006;backdrop-filter:blur(6px);color:#fff;font-size:18px;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.eng-wrap{transform:none;opacity:1}}
+
+/* round logo on the ribbon page */
+.clogo{--lg:clamp(72px,13vh,104px);position:absolute;left:50%;transform:translateX(-50%);width:var(--lg);height:var(--lg);
+top:max(12px,calc(50% - clamp(150px,27vh,230px) - var(--lg) - 16px));border-radius:50%;border:3px solid #ffd98a;background:#fff4d6;padding:5px;object-fit:contain;
+box-shadow:0 0 0 4px #ffd98a44,0 0 26px #ffb84a99;animation:logoglow 3s ease-in-out infinite alternate}
+@keyframes logoglow{to{box-shadow:0 0 0 7px #ffd98a22,0 0 40px #ffd98acc}}
+@media (max-height:480px){.clogo{display:none}}
+
+/* wedding invitation frame */
+.inv-frame{width:min(820px,100%)}
+.inv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;padding:12px}
+.inv-card{position:relative;overflow:hidden;border-radius:16px;box-shadow:0 8px 22px #7a102044;background:#000}
+.inv-card img{display:block;width:100%;height:auto;cursor:zoom-in;transition:transform .8s}
+.inv-card:hover img{transform:scale(1.05)}
+.inv-card::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,#fff7,transparent);transform:skewX(-20deg);animation:sweep 5s infinite;pointer-events:none}
+.inv-note{margin-top:14px;font-size:16px;font-style:italic;opacity:.8}
+#lb{position:fixed;inset:0;z-index:200;display:none;place-items:center;background:#000e;cursor:zoom-out;padding:10px}
+#lb.on{display:grid}
+#lb img{max-width:96vw;max-height:94vh;border-radius:8px}
 footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 @media (prefers-reduced-motion:reduce){#curtain.untie .bowwrap{opacity:0}*,*::before,*::after{animation:none!important;transition:none!important}.rv,body:not(.live) .hero>*{opacity:1;transform:none}.petal{display:none}}
 </style>
@@ -183,7 +202,7 @@ footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 <rect x="126" y="80" width="48" height="40" rx="12" fill="url(#gg)" stroke="#7a4f06" stroke-width="2"/>
 <path d="M134 90c10-6 22-6 32 0" fill="none" stroke="#fff8d0" stroke-width="3" stroke-linecap="round" opacity=".85"/>
 </svg></div>
-<div class="cta"><div class="top"><small>YOU ARE INVITED</small><span>Wedding Reception</span></div>
+<div class="cta"><img class="clogo" src="SG_wedding_logo.png" alt="Sathishkumar &amp; Gokiladevi logo" onerror="this.remove()"><div class="top"><small>YOU ARE INVITED</small><span>Wedding Reception</span></div>
 <div class="bot"><b>TAP THE BOW TO OPEN</b></div></div>
 </div>
 <div id="petals"></div>
@@ -214,6 +233,15 @@ footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 </section>
 
 <section>
+<h2 class="rv">WEDDING INVITATION</h2>
+<div class="eng-frame inv-frame rv"><div class="eng-in"><div class="inv-grid">
+<div class="inv-card"><img class="inv-img" src="INVI.PNG" alt="Wedding invitation" onerror="this.parentNode.remove()"></div>
+<div class="inv-card"><img class="inv-img" src="INVI.JPEG" alt="Wedding invitation" onerror="this.parentNode.remove()"></div>
+</div></div></div>
+<p class="inv-note rv">Tap a card to view it full screen</p>
+</section>
+
+<section>
 <h2 class="rv">ENGAGEMENT HIGHLIGHTS</h2>
 <div class="eng-frame rv" id="engFrame"><div class="eng-in"><div class="eng-wrap" id="engWrap">
 <div class="eng-track" id="engTrack" tabindex="0" aria-label="Engagement photos"></div>
@@ -241,6 +269,8 @@ footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 </section>
 
 <footer class="rv"><div class="line"></div>With love and blessings from<br><b>Friends &amp; Family</b></footer>
+
+<div id="lb"><img alt="Wedding invitation"></div>
 
 <script>
 const $=id=>document.getElementById(id);
@@ -309,6 +339,14 @@ function start(){const p=v.play();
 new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else v.pause()}),{threshold:.4}).observe(v);
 m.onclick=()=>{v.muted=!v.muted;sync()};
 sync();
+})();
+
+/* ---- invitation full-screen view ---- */
+(function(){
+const lb=$('lb'),im=lb.querySelector('img');
+document.querySelectorAll('.inv-img').forEach(i=>i.addEventListener('click',()=>{im.src=i.src;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 })();
 
 </script>
