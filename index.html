@@ -226,8 +226,8 @@ footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 <section>
 <h2 class="rv">OUR PROPOSAL MOMENT</h2>
 <div class="eng-frame rv"><div class="eng-in vid-in">
-<video id="vid" src="propose.mp4" muted loop playsinline preload="metadata" disablepictureinpicture></video>
-<button class="vid-mute" id="vidMute" aria-label="Turn sound on">&#128263;</button>
+<video id="vid" src="propose.mp4" loop playsinline preload="metadata" disablepictureinpicture></video>
+<button class="vid-mute" id="vidMute" aria-label="Mute video">&#128266;</button>
 </div></div>
 </section>
 
@@ -251,6 +251,7 @@ const C=$('curtain'),S=$('stars');
 for(let i=0;i<36;i++){const e=document.createElement('i');e.className='tw';e.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:-${Math.random()*2.4}s;animation-duration:${1.6+Math.random()*2}s`;S.appendChild(e)}
 let opened=false;
 C.onclick=function(){if(opened)return;opened=true;
+const vv=$('vid');vv.muted=false;const up=vv.play();if(up&&up.then)up.then(()=>vv.pause()).catch(()=>{});
 this.classList.add('untie');
 for(let i=0;i<22;i++){const s=document.createElement('i'),a=Math.random()*6.283,r=90+Math.random()*180;s.className='sp';s.style.setProperty('--dx',Math.cos(a)*r+'px');s.style.setProperty('--dy',Math.sin(a)*r+'px');s.style.animationDelay=Math.random()*.15+'s';this.appendChild(s)}
 setTimeout(()=>{this.classList.add('open');document.body.classList.remove('lock');document.body.classList.add('live')},750);
@@ -298,13 +299,16 @@ setInterval(()=>{if(!inView||reduce||document.hidden||Date.now()<hold||!L())retu
  go(idx+1,idx+1<L())},2000);
 })();
 
-/* ---- proposal video: plays silently as soon as it is on screen ---- */
+/* ---- proposal video: starts WITH sound when on screen; viewer can mute ---- */
 (function(){
-const v=$('vid'),m=$('vidMute');v.muted=true;
+const v=$('vid'),m=$('vidMute');v.muted=false;
+const sync=()=>{m.innerHTML=v.muted?'&#128263;':'&#128266;';m.setAttribute('aria-label',v.muted?'Unmute video':'Mute video')};
 if(matchMedia('(prefers-reduced-motion:reduce)').matches){v.controls=true;m.remove();return}
-new IntersectionObserver(es=>es.forEach(e=>{
- if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{v.controls=true})}else v.pause()}),{threshold:.4}).observe(v);
-m.onclick=()=>{v.muted=!v.muted;m.innerHTML=v.muted?'&#128263;':'&#128266;';m.setAttribute('aria-label',v.muted?'Turn sound on':'Turn sound off')};
+function start(){const p=v.play();
+ if(p&&p.catch)p.catch(()=>{v.muted=true;sync();const q=v.play();if(q&&q.catch)q.catch(()=>{v.controls=true})})}
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)start();else v.pause()}),{threshold:.4}).observe(v);
+m.onclick=()=>{v.muted=!v.muted;sync()};
+sync();
 })();
 
 </script>
