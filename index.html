@@ -272,8 +272,8 @@ function mark(){[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===id
 function go(i,smooth=true){const n=L();if(!n)return;idx=(i+n)%n;track.scrollTo({left:idx*track.clientWidth,behavior:smooth?'smooth':'auto'});mark()}
 function buildDots(){dots.innerHTML='';for(let i=0;i<L();i++){const b=document.createElement('button');b.setAttribute('aria-label','Photo '+(i+1));b.onclick=()=>{pause();go(i)};dots.appendChild(b)}mark()}
 function pause(){hold=Date.now()+4000}
-/* photos: 1.png ... 10.png in same folder as index.html */
-for(let n=1;n<=10;n++){
+/* photos: 1.png ... 12.png in same folder as index.html */
+for(let n=1;n<=12;n++){
  const s=document.createElement('div');s.className='eng-slide';
  const bg=new Image(),fg=new Image();
  bg.src=fg.src=n+'.png';bg.className='bg';fg.className='fg';bg.alt='';fg.alt='Engagement photo '+n;
