@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=3b043a85-30b5-41e6-8977-2453be119212
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sathishkumar &amp; Gokiladevi · Wedding Reception</title>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sathishkumar &amp; Gokiladevi · Wedding Reception">
-<meta property="og:description" content="You’re invited! 20 Nov 2026 · Sri Kandhan Mahal, Pallipalayam">
-<meta property="og:url" content="https://sathishkumarwedsgokiladevi.github.io/invitation/">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
 :root{--bg1:#fff4d6;--bg2:#ffd9a0;--ink:#7a1020;--gold:#c8901a;--card:rgba(255,255,255,.6);--pink:#d6246e;--rose:#ff8fb1;
@@ -23,43 +22,16 @@ body.lock{overflow:hidden;height:100vh}
 h1,h2,.cinzel{font-family:Cinzel,Georgia,serif;letter-spacing:.3em}
 section{position:relative;z-index:2;max-width:880px;margin:auto;padding:70px 22px}
 
-/* ribbon intro */
-#curtain{position:fixed;inset:0;z-index:100;display:flex;cursor:pointer;overflow:hidden;-webkit-tap-highlight-color:transparent}
-#curtain .p{position:relative;flex:1;overflow:hidden;transition:transform 1.5s cubic-bezier(.7,0,.2,1);box-shadow:0 0 60px #0009;
-background:radial-gradient(#ffd98a26 1.5px,transparent 2px) 0 0/28px 28px,radial-gradient(130% 90% at 50% 50%,#a01a34 0%,#6d0b1b 58%,#450611 100%)}
+/* curtain */
+#curtain{position:fixed;inset:0;z-index:100;display:flex;cursor:pointer}
+#curtain .p{flex:1;background:repeating-linear-gradient(90deg,#6d0b1b 0 18px,#8d1428 18px 36px);transition:transform 1.6s cubic-bezier(.7,0,.2,1);box-shadow:0 0 60px #0008}
 #curtain.open .p:first-child{transform:translateX(-102%)}
 #curtain.open .p:last-child{transform:translateX(102%)}
-.rb-h,.rb-v{position:absolute;overflow:hidden;box-shadow:0 6px 16px #000a}
-.rb-h{left:0;right:0;top:50%;height:clamp(54px,10vh,80px);transform:translateY(-50%);
-background:linear-gradient(180deg,#7a4f06,#d9a42e 16%,#ffeaa6 38%,#e8b33f 58%,#a8730f 84%,#6e4505)}
-.rb-v{top:0;bottom:0;width:clamp(26px,5vw,40px)}
-.p:first-child .rb-v{right:0;background:linear-gradient(90deg,#7a4f06,#d9a42e 45%,#ffeaa6)}
-.p:last-child .rb-v{left:0;background:linear-gradient(90deg,#ffeaa6,#d9a42e 55%,#7a4f06)}
-.rb-h::after,.rb-v::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,#fffc 50%,transparent 65%);transform:translateX(-120%);animation:glint 3.4s ease-in-out infinite}
-.rb-v::after{animation-delay:.6s}
-@keyframes glint{60%,100%{transform:translateX(120%)}}
-.bowwrap{position:absolute;inset:0;display:grid;place-items:center;z-index:3;pointer-events:none}
-.bow{width:clamp(200px,56vw,320px);height:auto;overflow:visible;filter:drop-shadow(0 12px 14px #000b);animation:bowfloat 2.6s ease-in-out infinite}
-@keyframes bowfloat{0%,100%{transform:scale(1) rotate(-1.5deg)}50%{transform:scale(1.07) rotate(1.5deg)}}
-.lpL,.lpR{transform-origin:150px 100px}
-.lpL{animation:flapL 2.6s ease-in-out infinite}.lpR{animation:flapR 2.6s ease-in-out infinite}
-@keyframes flapL{50%{transform:rotate(-5deg)}}@keyframes flapR{50%{transform:rotate(5deg)}}
-#curtain.untie .bow{animation:untie .85s cubic-bezier(.5,-.4,.5,1.1) forwards}
-@keyframes untie{0%{transform:scale(1)}30%{transform:scale(1.3) rotate(-7deg)}100%{transform:scale(0) rotate(50deg);opacity:0}}
-.cta,.stars{position:absolute;inset:0;pointer-events:none;z-index:2;transition:opacity .4s}
-#curtain.untie .cta,#curtain.untie .stars{opacity:0}
-.cta .top,.cta .bot{position:absolute;left:0;right:0;text-align:center;color:#ffe3b0;padding:0 16px}
-.cta .top{top:calc(50% - clamp(150px,27vh,230px))}
-.cta .bot{top:calc(50% + clamp(120px,22vh,190px))}
-.cta .top span{display:block;font-family:'Great Vibes',cursive;font-size:clamp(34px,9vw,54px);line-height:1.1;color:#ffd98a;text-shadow:0 0 18px #ffb84a88}
-.cta .top small{font-family:Cinzel,serif;letter-spacing:.35em;font-size:clamp(11px,3vw,14px)}
-.cta b{display:inline-block;font-family:Cinzel,serif;letter-spacing:.3em;font-size:14px;border:1px solid #ffe3b0;padding:12px 22px;border-radius:40px;background:#0003;animation:cta 1.8s ease-in-out infinite}
-@keyframes cta{50%{transform:scale(1.07);box-shadow:0 0 22px #ffd98a88}}
-.tw{position:absolute;width:4px;height:4px;border-radius:50%;background:#ffe9a6;box-shadow:0 0 8px 2px #ffd98a;animation:tw 2.4s ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:.1;transform:scale(.5)}50%{opacity:1;transform:scale(1.4)}}
-.sp{position:absolute;left:50%;top:50%;width:16px;height:16px;z-index:4;background:#ffe9a6;filter:drop-shadow(0 0 6px #ffc94a);
-clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:spark 1s ease-out forwards;pointer-events:none}
-@keyframes spark{from{transform:translate(-50%,-50%) scale(1.2)}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2) rotate(200deg);opacity:0}}
+#curtain .cta{position:absolute;inset:0;display:grid;place-content:center;gap:14px;color:#ffe3b0;transition:opacity .5s;z-index:2}
+#curtain.open .cta{opacity:0;pointer-events:none}
+.cta .om{font-size:64px;animation:pulse 2s infinite}
+.cta b{font-family:Cinzel,serif;letter-spacing:.35em;font-size:15px;border:1px solid #ffe3b0;padding:12px 22px;border-radius:40px}
+@keyframes pulse{50%{transform:scale(1.15);filter:drop-shadow(0 0 18px gold)}}
 
 /* petals */
 #petals{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
@@ -74,10 +46,10 @@ animation:fall var(--d) linear var(--l) infinite}
 @keyframes swing{0%,100%{transform:rotate(9deg)}50%{transform:rotate(-9deg)}}
 
 /* hero */
-.hero{min-height:100vh;display:grid;place-content:center;justify-items:center;gap:14px}
+.hero{min-height:100vh;display:grid;place-content:center;gap:14px}
 .sm{font-size:19px;letter-spacing:.06em}
 h2{font-size:clamp(15px,3.6vw,22px);color:var(--gold)}
-.name{font-family:'Great Vibes',cursive;font-size:clamp(46px,13vw,120px);line-height:1.2;font-weight:400;display:inline-block;max-width:100%;padding:.12em .35em .2em;
+.name{font-family:'Great Vibes',cursive;font-size:clamp(54px,14vw,120px);line-height:1.05;font-weight:400;
 background:linear-gradient(90deg,var(--ink),var(--gold),var(--pink),var(--ink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
 @keyframes shine{to{background-position:300% 0}}
 .amp{font-family:'Great Vibes',cursive;font-size:56px;color:var(--gold);animation:beat 1.6s infinite}
@@ -104,9 +76,6 @@ body.live .hero>*:nth-child(6){animation-delay:1s}body.live .hero>*:nth-child(7)
 .card::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,#fff9,transparent);transform:skewX(-20deg);animation:sweep 5s infinite}
 @keyframes sweep{to{left:180%}}
 .card .ic{font-size:44px;display:block;margin-bottom:8px;animation:bob 3s infinite}
-.cal{display:inline-block;width:48px;height:52px;border-radius:9px;background:#fff;border:2px solid var(--gold);overflow:hidden;box-shadow:0 3px 8px #0003;vertical-align:top}
-.cal em{display:block;background:linear-gradient(135deg,var(--pink),#8d1428);color:#fff;font:700 10px/16px Cinzel,serif;letter-spacing:.2em;font-style:normal;text-indent:.2em}
-.cal b{display:block;font:700 24px/32px Cinzel,serif;color:#7a1020;letter-spacing:0}
 .card h3{font-family:Cinzel,serif;letter-spacing:.2em;font-size:17px;color:var(--gold);margin-bottom:8px}
 .card p{font-size:21px;line-height:1.4}
 
@@ -128,35 +97,40 @@ body.live .hero>*:nth-child(6){animation-delay:1s}body.live .hero>*:nth-child(7)
 .btn{font-family:Cinzel,serif;letter-spacing:.15em;font-size:14px;text-decoration:none;color:#fff;padding:15px 26px;border-radius:50px;background:linear-gradient(135deg,var(--pink),#8d1428);box-shadow:0 8px 24px #d6246e55;transition:.3s}
 .btn:hover{transform:translateY(-4px) scale(1.05)}
 .btn.g{background:linear-gradient(135deg,#25a244,#0f6b2a)}
+
+/* engagement highlights */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes ang{to{--ang:360deg}}
+.eng-frame{--ang:0deg;position:relative;margin-top:30px;padding:6px;border-radius:30px;
+background:conic-gradient(from var(--ang),var(--gold),var(--pink),var(--gold),var(--rose),var(--gold));
+animation:ang 6s linear infinite;box-shadow:0 20px 50px #c8901a55}
+.eng-in{position:relative;overflow:hidden;border-radius:25px;padding:16px 0;background:linear-gradient(160deg,var(--bg1),var(--bg2))}
+.eng-in::before,.eng-in::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:3;pointer-events:none}
+.eng-in::before{left:0;background:linear-gradient(90deg,var(--bg1),transparent)}
+.eng-in::after{right:0;background:linear-gradient(270deg,var(--bg1),transparent)}
+.eng-row{display:flex;width:max-content;padding:12px 0;animation:slideL 45s linear infinite}
+.eng-row.rev{animation-name:slideR;animation-duration:55s}
+.eng-in:hover .eng-row{animation-play-state:paused}
+@keyframes slideL{to{transform:translateX(-50%)}}
+@keyframes slideR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.ph{--r:-3deg;flex:none;position:relative;width:clamp(150px,34vw,230px);aspect-ratio:3/4;margin-right:18px;overflow:hidden;
+border-radius:18px;border:4px solid #fff;box-shadow:0 10px 26px #7a102044;animation:floaty 5s ease-in-out infinite}
+.ph:nth-child(even){--r:3deg;animation-delay:-2.5s}
+.ph:nth-child(3n){animation-delay:-1.2s}
+.rev .ph{width:clamp(120px,26vw,180px);aspect-ratio:1/1}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
+.ph:hover img{transform:scale(1.15)}
+.ph::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,#fff8,transparent);transform:skewX(-20deg);animation:sweep 4.5s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-14px) rotate(calc(var(--r) * -1))}}
+@media (prefers-reduced-motion:reduce){.eng-in{overflow-x:auto}}
 footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
-@media (prefers-reduced-motion:reduce){#curtain.untie .bowwrap{opacity:0}*,*::before,*::after{animation:none!important;transition:none!important}.rv,body:not(.live) .hero>*{opacity:1;transform:none}.petal{display:none}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,body:not(.live) .hero>*{opacity:1;transform:none}.petal{display:none}}
 </style>
 </head>
 <body class="lock">
 
-<div id="curtain">
-<div class="p"><div class="rb-h"></div><div class="rb-v"></div></div>
-<div class="p"><div class="rb-h"></div><div class="rb-v"></div></div>
-<div class="stars" id="stars"></div>
-<div class="bowwrap"><svg class="bow" viewBox="0 0 300 200" aria-hidden="true">
-<defs>
-<linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffeaa6"/><stop offset=".45" stop-color="#e8b33f"/><stop offset="1" stop-color="#9a6609"/></linearGradient>
-<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c8901a"/><stop offset="1" stop-color="#7a4f06"/></linearGradient>
-<g id="loop"><path d="M150 100C112 36 36 14 26 68c-8 46 78 58 124 32z" fill="url(#gg)" stroke="#7a4f06" stroke-width="2"/>
-<path d="M144 99C116 64 70 52 62 78c-5 20 44 30 82 21z" fill="url(#gd)" opacity=".85"/>
-<path d="M60 52c18-8 42 4 62 30" fill="none" stroke="#fff8d0" stroke-width="3" stroke-linecap="round" opacity=".8"/></g>
-<g id="tail"><polygon points="142,100 78,186 102,181 111,200 168,114" fill="url(#gg)" stroke="#7a4f06" stroke-width="2"/>
-<polygon points="150,106 104,172 116,170 122,182 158,118" fill="url(#gd)" opacity=".6"/></g>
-</defs>
-<use href="#tail"/><use href="#tail" transform="translate(300 0) scale(-1 1)"/>
-<g class="lpL"><use href="#loop"/></g>
-<g class="lpR"><use href="#loop" transform="translate(300 0) scale(-1 1)"/></g>
-<rect x="126" y="80" width="48" height="40" rx="12" fill="url(#gg)" stroke="#7a4f06" stroke-width="2"/>
-<path d="M134 90c10-6 22-6 32 0" fill="none" stroke="#fff8d0" stroke-width="3" stroke-linecap="round" opacity=".85"/>
-</svg></div>
-<div class="cta"><div class="top"><small>YOU ARE INVITED</small><span>Wedding Reception</span></div>
-<div class="bot"><b>TAP THE BOW TO OPEN</b></div></div>
-</div>
+<div id="curtain"><div class="p"></div><div class="p"></div>
+<div class="cta"><span class="om">🪔</span><b>TAP TO OPEN</b></div></div>
 <div id="petals"></div>
 <div class="bell l">🔔</div><div class="bell r">🔔</div>
 
@@ -174,14 +148,22 @@ footer{padding:50px 20px 70px;font-style:italic;font-size:24px}
 <section>
 <h2 class="rv">SAVE THE DATE</h2>
 <div class="grid">
-<div class="card rv"><span class="ic"><span class="cal"><em>NOV</em><b>20</b></span></span><h3>DATE</h3><p>Friday,<br><b>20 Nov 2026</b></p></div>
+<div class="card rv"><span class="ic">📅</span><h3>DATE</h3><p>Friday,<br><b>20 Nov 2026</b></p></div>
 <div class="card rv" style="transition-delay:.15s"><span class="ic">🕛</span><h3>RECEPTION</h3><p>12:00 PM to<br>2:00 PM</p></div>
 <div class="card rv" style="transition-delay:.3s"><span class="ic">📍</span><h3>VENUE</h3><p><b>Sri Kandhan Mahal</b><br>Ganapathipalayam Bus Stop, Komarapalayam Road, Pallipalayam<br><small>Bus No: K1 &amp; K2</small></p></div>
 </div>
 <div class="btns rv">
 <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Sri+Kandhan+Mahal+Pallipalayam">📍 VIEW LOCATION</a>
-<a class="btn g" target="_blank" rel="noopener" href="https://wa.me/?text=You%E2%80%99re%20invited%20to%20Sathishkumar%20%26%20Gokiladevi%E2%80%99s%20Wedding%20Reception%20on%2020%20Nov%202026!%0A%0AView%20the%20invitation%3A%20https%3A%2F%2Fsathishkumarwedsgokiladevi.github.io%2Finvitation%2F">SHARE ON WHATSAPP</a>
+<a class="btn g" target="_blank" rel="noopener" href="https://wa.me/?text=You%E2%80%99re%20invited%20to%20Sathishkumar%20%26%20Gokiladevi%E2%80%99s%20Wedding%20Reception%20on%2020%20Nov%202026!%0A%0AView%20the%20invitation%3A%20https%3A%2F%2Fsathishdevi.netlify.app">SHARE ON WHATSAPP</a>
 </div>
+</section>
+
+<section>
+<h2 class="rv">ENGAGEMENT HIGHLIGHTS</h2>
+<div class="eng-frame rv"><div class="eng-in">
+<div class="eng-row" id="row1"></div>
+<div class="eng-row rev" id="row2"></div>
+</div></div>
 </section>
 
 <section>
@@ -200,20 +182,22 @@ const $=id=>document.getElementById(id);
 const P=$('petals');
 for(let i=0;i<26;i++){const e=document.createElement('i');e.className='petal';
 e.style.cssText=`left:${Math.random()*100}%;--s:${8+Math.random()*12}px;--d:${7+Math.random()*8}s;--l:-${Math.random()*12}s;--x:${(Math.random()-.5)*160}px`;P.appendChild(e)}
-const C=$('curtain'),S=$('stars');
-for(let i=0;i<36;i++){const e=document.createElement('i');e.className='tw';e.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:-${Math.random()*2.4}s;animation-duration:${1.6+Math.random()*2}s`;S.appendChild(e)}
-let opened=false;
-C.onclick=function(){if(opened)return;opened=true;
-this.classList.add('untie');
-for(let i=0;i<22;i++){const s=document.createElement('i'),a=Math.random()*6.283,r=90+Math.random()*180;s.className='sp';s.style.setProperty('--dx',Math.cos(a)*r+'px');s.style.setProperty('--dy',Math.sin(a)*r+'px');s.style.animationDelay=Math.random()*.15+'s';this.appendChild(s)}
-setTimeout(()=>{this.classList.add('open');document.body.classList.remove('lock');document.body.classList.add('live')},750);
-setTimeout(()=>this.remove(),2600)};
+$('curtain').onclick=function(){this.classList.add('open');document.body.classList.remove('lock');document.body.classList.add('live');setTimeout(()=>this.remove(),1800)};
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 const T=new Date('2026-11-20T12:00:00+05:30');
 function tick(){let t=Math.max(0,T-new Date());const f=(n,v)=>$(n).textContent=String(v).padStart(2,'0');
 f('d',Math.floor(t/864e5));f('h',Math.floor(t/36e5%24));f('m',Math.floor(t/6e4%60));f('s',Math.floor(t/1e3%60))}
 tick();setInterval(tick,1000);
+// engagement gallery: images 1.png ... 10.png (same folder as index.html)
+function buildRow(id,order){const r=$(id);
+ [...order,...order].forEach(n=>{const d=document.createElement('div');d.className='ph';
+  const im=new Image();im.src=n+'.png';im.alt='Engagement photo '+n;im.loading='lazy';im.onerror=()=>d.remove();
+  d.appendChild(im);r.appendChild(d)})}
+const nums=[1,2,3,4,5,6,7,8,9,10];
+buildRow('row1',nums);buildRow('row2',[...nums].reverse());
+
 </script>
 </body>
 </html>
+<script async src="/.netlify/scripts/ar" data-netlify-deploy-id="6aee1c49a7c1e665ac06d819" data-netlify-site-id="3b043a85-30b5-41e6-8977-2453be119212" data-agent-runner-id="6aee1b7d2d1c70198a9a22b8"></script>
